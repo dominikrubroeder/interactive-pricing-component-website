@@ -1,15 +1,41 @@
-import React from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import Toggle from './Toggle';
 
 const Pricing: React.FC = () => {
+  const [inputValue, setInputValue] = useState<number>(100000);
+  const [computedPageViews, setComputedPageViews] = useState(100);
+  const [price, setPrice] = useState<number>(16);
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(+e.target.value);
+  };
+
+  useEffect(() => {
+    if (inputValue < 100000) {
+      setComputedPageViews(+inputValue.toString().slice(0, 2));
+      return;
+    }
+
+    if (inputValue >= 100000) {
+      setComputedPageViews(+inputValue.toString().slice(0, 3));
+      return;
+    }
+  }, [inputValue]);
+
+  useEffect(() => {
+    setPrice(inputValue * 0.00016);
+  }, [inputValue]);
+
   return (
     <div className="max-w-xl w-full bg-white rounded-xl drop-shadow-2xl">
       <header className="grid gap-4 p-4 sm:px-12 sm:py-8 sm:pb-0">
         <div className="sm:flex sm:items-center sm:justify-between sm:gap-2 sm:flex-wrap">
           <h4 className="uppercase tracking-widest text-app-neutral-blue-grayish font-bold">
-            100k Pageviews
+            ${computedPageViews}
+            {inputValue > 990000 ? 'mio+' : 'k'} Pageviews
           </h4>
           <div className="flex items-center gap-1">
-            <h2 className="text-5xl font-bold">$16.00</h2>
+            <h2 className="text-5xl font-bold">${price.toFixed(2)}</h2>
             <h4 className="text-app-neutral-blue-grayish">/ month</h4>
           </div>
         </div>
@@ -19,17 +45,22 @@ const Pricing: React.FC = () => {
           type="range"
           id="price"
           name="price"
-          min="0"
-          max="1000000"
+          min="10000"
+          max="200000"
+          step="10000"
+          value={inputValue}
+          onChange={onChangeHandler}
         />
       </header>
 
       <div className="flex items-center justify-center gap-4 p-4 sm:px-12 sm:py-8 text-app-neutral-blue-grayish">
         <button>Monthly Billing</button>
-        <p>Add toggle</p>
-        <div className="flex items-center gap-2">
+
+        <Toggle />
+
+        <div className="relative flex items-center gap-2">
           <button>Yearly Billing</button>
-          <span className="rounded-full py-1 px-2 text-app-primary-red-light bg-app-primary-red-grayish-light text-xs font-bold">
+          <span className="absolute t-0 r-0 translate-x-[115%] rounded-full py-1 px-2 text-app-primary-red-light bg-app-primary-red-grayish-light text-[.625rem] font-bold shrink-0">
             25% discount
           </span>
         </div>

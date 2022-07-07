@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Pricing from '../components/Pricing';
+import BackgroundPattern from '../components/svg/BackgroundPattern';
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +13,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="min-h-screen bg-app-neutral-blue-pale-very sm:flex sm:items-center sm:justify-center sm:flex-col">
+        <BackgroundPattern />
+
         <header className="grid gap-2 text-center mb-16">
           <h1 className="text-3xl font-bold text-app-neutral-blue-desaturated-dark">
             Simple, traffic based pricing
