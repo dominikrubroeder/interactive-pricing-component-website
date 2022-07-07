@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Pricing from '../components/Pricing';
 
 const Home: NextPage = () => {
   return (
@@ -10,8 +11,17 @@ const Home: NextPage = () => {
         <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
       </Head>
 
-      <main>
-        <h1 className="text-9xl">Hello, world</h1>
+      <main className="min-h-screen bg-app-neutral-blue-pale-very sm:flex sm:items-center sm:justify-center sm:flex-col">
+        <header className="grid gap-2 text-center mb-16">
+          <h1 className="text-3xl font-bold text-app-neutral-blue-desaturated-dark">
+            Simple, traffic based pricing
+          </h1>
+          <p className="text-app-neutral-blue-grayish">
+            Sign up for our 30 day trial. No credit card required.
+          </p>
+        </header>
+
+        <Pricing />
       </main>
     </div>
   );
