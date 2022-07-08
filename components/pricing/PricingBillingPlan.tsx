@@ -17,12 +17,22 @@ const PricingBillingPlan: React.FC<PricingBillingPlanProps> = ({
 }) => {
   return (
     <div className="flex items-center justify-center gap-4 p-12 px-8 sm:pt-8 text-app-neutral-blue-grayish">
-      <button>{BillingPlan.MONTHLY} Billing</button>
+      <button
+        className={`transition-all ${isMonthly ? 'opacity-50' : 'opacity-100'}`}
+      >
+        {BillingPlan.MONTHLY} Billing
+      </button>
 
       <Toggle initialValue={isMonthly} onClick={onChange} />
 
       <div className="relative flex items-center gap-2">
-        <button>{BillingPlan.YEARLY} Billing</button>
+        <button
+          className={`transition-all ${
+            isMonthly ? 'opacity-100' : 'opacity-50'
+          }`}
+        >
+          {BillingPlan.YEARLY} Billing
+        </button>
 
         <span className="absolute -top-2 right-3 translate-x-full rounded-full py-1 px-2 text-app-primary-red-light bg-app-primary-red-grayish-light text-[.625rem] font-bold shrink-0 -z-10 sm:hidden">
           - 25%

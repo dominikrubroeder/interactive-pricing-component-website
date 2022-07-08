@@ -45,7 +45,7 @@ const PricingHeader: React.FC<PricingHeaderProps> = ({
   return (
     <header className="grid gap-4 p-8 pb-0 sm:flex sm:items-center sm:px-12 sm:py-16 sm:pb-0 sm:flex-wrap">
       <h4 className="uppercase tracking-widest text-app-neutral-blue-grayish font-bold text-center sm:flex-1 sm:text-left">
-        ${computedPageViews}
+        {computedPageViews}
         {inputValue > 990000 ? 'mio+' : 'k'} Pageviews
       </h4>
 
@@ -54,6 +54,7 @@ const PricingHeader: React.FC<PricingHeaderProps> = ({
           className="h-2 absolute top-1/2 left-0 -translate-y-1/2 bg-app-primary-cyan-strong rounded-full block"
           style={{ width: `${progress}%` }}
         ></div>
+
         <input
           className="w-full my-8"
           type="range"
