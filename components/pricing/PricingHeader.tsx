@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { BillingPlan } from './PricingBillingPlan';
 
-const PricingHeader: React.FC = () => {
+interface PricingHeaderProps {
+  selectedBillingPlan: string;
+}
+
+const PricingHeader: React.FC<PricingHeaderProps> = ({
+  selectedBillingPlan,
+}) => {
   const [inputValue, setInputValue] = useState<number>(100000);
   const [computedPageViews, setComputedPageViews] = useState(100);
   const [price, setPrice] = useState<number>(16);
@@ -26,9 +33,14 @@ const PricingHeader: React.FC = () => {
   }, [inputValue]);
 
   useEffect(() => {
-    setPrice(inputValue * 0.00016);
+    if (selectedBillingPlan === BillingPlan.MONTHLY)
+      setPrice(inputValue * 0.00016);
+
+    if (selectedBillingPlan === BillingPlan.YEARLY)
+      setPrice(inputValue * 0.00016 * 0.75);
+
     setProgress((inputValue * 100) / maxVal);
-  }, [inputValue]);
+  }, [selectedBillingPlan, inputValue]);
 
   return (
     <header className="grid gap-4 p-8 pb-0 sm:flex sm:items-center sm:px-12 sm:py-16 sm:pb-0 sm:flex-wrap">

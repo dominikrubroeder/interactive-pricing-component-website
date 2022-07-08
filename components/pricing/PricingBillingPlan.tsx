@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Toggle from '../Toggle';
 
 export enum BillingPlan {
@@ -6,12 +6,20 @@ export enum BillingPlan {
   YEARLY = 'Yearly',
 }
 
-const PricingBillingPlan: React.FC = () => {
+interface PricingBillingPlanProps {
+  isMonthly: boolean;
+  onChange: (toggledState: boolean) => void;
+}
+
+const PricingBillingPlan: React.FC<PricingBillingPlanProps> = ({
+  isMonthly,
+  onChange,
+}) => {
   return (
     <div className="flex items-center justify-center gap-4 p-12 px-8 sm:pt-8 text-app-neutral-blue-grayish">
       <button>{BillingPlan.MONTHLY} Billing</button>
 
-      <Toggle />
+      <Toggle initialValue={isMonthly} onClick={onChange} />
 
       <div className="relative flex items-center gap-2">
         <button>{BillingPlan.YEARLY} Billing</button>
