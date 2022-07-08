@@ -19,6 +19,9 @@ module.exports = {
         'app-neutral-blue-grayish': 'hsl(225, 20%, 60%)',
         'app-neutral-blue-desaturated-dark': 'hsl(227, 35%, 25%)',
       },
+      backgroundImage: {
+        'bg-pattern': "url('/images/bg-pattern.svg')",
+      },
     },
   },
   plugins: [],

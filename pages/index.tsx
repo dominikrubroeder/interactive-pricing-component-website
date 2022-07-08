@@ -1,7 +1,8 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import Pricing from '../components/Pricing';
-import BackgroundPattern from '../components/svg/BackgroundPattern';
+import PatternCircles from '../components/svg/PatternCircles';
 
 const Home: NextPage = () => {
   return (
@@ -12,16 +13,20 @@ const Home: NextPage = () => {
         <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
       </Head>
 
-      <main className="min-h-screen bg-app-neutral-blue-pale-very sm:flex sm:items-center sm:justify-center sm:flex-col">
-        <BackgroundPattern />
+      <main className="min-h-screen bg-app-neutral-blue-pale-very">
+        <div className="absolute top-0 w-full h-[50vh] bg-bg-pattern bg-no-repeat bg-cover bg-left"></div>
 
-        <header className="grid gap-2 text-center mb-16">
-          <h1 className="text-3xl font-bold text-app-neutral-blue-desaturated-dark">
+        <header className="relative grid gap-2 text-center my-24">
+          <h1 className="text-3xl font-bold text-app-neutral-blue-desaturated-dark z-10">
             Simple, traffic based pricing
           </h1>
-          <p className="text-app-neutral-blue-grayish">
+          <p className="text-app-neutral-blue-grayish z-10">
             Sign up for our 30 day trial. No credit card required.
           </p>
+
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-auto z-0">
+            <PatternCircles />
+          </div>
         </header>
 
         <Pricing />

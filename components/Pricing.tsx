@@ -28,8 +28,8 @@ const Pricing: React.FC = () => {
   }, [inputValue]);
 
   return (
-    <div className="max-w-xl w-full bg-white rounded-xl drop-shadow-2xl">
-      <header className="grid gap-4 p-4 sm:px-12 sm:py-8 sm:pb-0">
+    <div className="max-w-xl w-full bg-white rounded-xl drop-shadow-2xl m-auto">
+      <header className="grid gap-4 p-4 sm:px-12 sm:py-16 sm:pb-0">
         <div className="sm:flex sm:items-center sm:justify-between sm:gap-2 sm:flex-wrap">
           <h4 className="uppercase tracking-widest text-app-neutral-blue-grayish font-bold">
             ${computedPageViews}
@@ -42,7 +42,7 @@ const Pricing: React.FC = () => {
         </div>
 
         <input
-          className="w-full"
+          className="w-full my-8"
           type="range"
           id="price"
           name="price"
@@ -54,7 +54,7 @@ const Pricing: React.FC = () => {
         />
       </header>
 
-      <div className="flex items-center justify-center gap-4 p-4 sm:px-12 sm:py-8 text-app-neutral-blue-grayish">
+      <div className="flex items-center justify-center gap-4 p-4 sm:p-12 sm:pt-4 text-app-neutral-blue-grayish">
         <button>Monthly Billing</button>
 
         <Toggle />
