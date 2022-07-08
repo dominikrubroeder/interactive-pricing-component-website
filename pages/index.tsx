@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
 import Pricing from '../components/pricing/Pricing';
 import PatternCircles from '../components/svg/PatternCircles';
 
@@ -13,7 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/images/favicon-32x32.png" type="image/png" />
       </Head>
 
-      <main className="min-h-screen bg-app-neutral-blue-pale-very">
+      <main className="min-h-screen">
         <div className="absolute top-0 w-full h-[50vh] bg-bg-pattern bg-no-repeat bg-cover bg-left"></div>
 
         <header className="relative grid gap-2 text-center my-12 px-4 sm:my-24">
