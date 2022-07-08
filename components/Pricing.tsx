@@ -1,4 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
+import IconCheck from './svg/IconCheck';
 import Toggle from './Toggle';
 
 const Pricing: React.FC = () => {
@@ -60,17 +61,23 @@ const Pricing: React.FC = () => {
 
         <div className="relative flex items-center gap-2">
           <button>Yearly Billing</button>
-          <span className="absolute t-0 r-0 translate-x-[115%] rounded-full py-1 px-2 text-app-primary-red-light bg-app-primary-red-grayish-light text-[.625rem] font-bold shrink-0">
+          <span className="absolute t-0 r-0 translate-x-[125%] rounded-full py-1 px-2 text-app-primary-red-light bg-app-primary-red-grayish-light text-[.625rem] font-bold shrink-0">
             25% discount
           </span>
         </div>
       </div>
 
       <footer className="border-t p-4 sm:px-12 sm:py-8 sm:flex sm:items-center sm:justify-between sm:gap-2">
-        <ul className="text-app-neutral-blue-grayish">
-          <li>Unlimited websites</li>
-          <li>100% data ownership</li>
-          <li>Email reports</li>
+        <ul className="grid gap-2 text-app-neutral-blue-grayish">
+          <li className="flex items-center gap-4">
+            <IconCheck /> Unlimited websites
+          </li>
+          <li className="flex items-center gap-4">
+            <IconCheck /> 100% data ownership
+          </li>
+          <li className="flex items-center gap-4">
+            <IconCheck /> Email reports
+          </li>
         </ul>
 
         <button className="text-app-primary-blue-pale bg-app-neutral-blue-desaturated-dark rounded-full px-12 py-3 text-sm shrink-0">
