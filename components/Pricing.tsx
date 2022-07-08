@@ -6,6 +6,10 @@ const Pricing: React.FC = () => {
   const [inputValue, setInputValue] = useState<number>(100000);
   const [computedPageViews, setComputedPageViews] = useState(100);
   const [price, setPrice] = useState<number>(16);
+  const [progress, setProgress] = useState<number>();
+
+  const minVal = 10000;
+  const maxVal = 200000;
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(+e.target.value);
@@ -25,6 +29,7 @@ const Pricing: React.FC = () => {
 
   useEffect(() => {
     setPrice(inputValue * 0.00016);
+    setProgress((inputValue * 100) / maxVal);
   }, [inputValue]);
 
   return (
@@ -41,17 +46,23 @@ const Pricing: React.FC = () => {
           </div>
         </div>
 
-        <input
-          className="w-full my-8"
-          type="range"
-          id="price"
-          name="price"
-          min="10000"
-          max="200000"
-          step="10000"
-          value={inputValue}
-          onChange={onChangeHandler}
-        />
+        <div className="relative w-full">
+          <div
+            className="h-2 absolute top-1/2 left-0 -translate-y-1/2 bg-app-primary-cyan-strong rounded-full block"
+            style={{ width: `${progress}%` }}
+          ></div>
+          <input
+            className="w-full my-8"
+            type="range"
+            id="price"
+            name="price"
+            min={minVal}
+            max={maxVal}
+            step="10000"
+            value={inputValue}
+            onChange={onChangeHandler}
+          />
+        </div>
       </header>
 
       <div className="flex items-center justify-center gap-4 p-4 sm:p-12 sm:pt-4 text-app-neutral-blue-grayish">
