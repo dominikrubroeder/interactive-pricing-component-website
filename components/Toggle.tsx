@@ -8,7 +8,7 @@ interface ToggleProps {
 const Toggle: React.FC<ToggleProps> = ({ initialValue, onClick }) => {
   return (
     <div
-      className="flex items-center w-9 h-4.5 p-1 rounded-full bg-app-neutral-blue-grayish-light cursor-pointer transition-all hover:bg-app-primary-cyan-strong"
+      className="flex items-center w-9 h-4.5 p-1 rounded-full cursor-pointer transition-all bg-app-primary-cyan-strong"
       onClick={() => onClick(!initialValue)}
     >
       <div

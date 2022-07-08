@@ -21,7 +21,7 @@ const PricingFooter: React.FC = () => {
         ))}
       </ul>
 
-      <button className="text-app-primary-blue-pale bg-app-neutral-blue-desaturated-dark rounded-full px-12 py-3 text-sm shrink-0 mb-8 transition-all hover:scale-[102%] hover:text-white sm:mb-0">
+      <button className="text-app-primary-blue-pale bg-app-neutral-blue-desaturated-dark rounded-full px-12 py-3 text-sm shrink-0 mb-8 transition-all opacity-0 invisible animate-fadeUp animation-delay-1000 hover:scale-[102%] hover:text-white sm:mb-0">
         Start my trial
       </button>
     </footer>

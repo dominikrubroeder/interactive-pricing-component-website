@@ -15,7 +15,7 @@ const Pricing: React.FC = () => {
   };
 
   return (
-    <div className="relative bg-white shadow-2xl rounded-xl z-50 mx-4 mb-4 sm:mb-0 sm:max-w-xl sm:m-auto sm:w-full">
+    <div className="relative bg-white shadow-2xl rounded-xl z-50 mx-4 mb-4 animate-scale sm:mb-0 sm:max-w-xl sm:m-auto sm:w-full">
       <PricingHeader selectedBillingPlan={selectedBillingPlan} />
 
       <PricingBillingPlan

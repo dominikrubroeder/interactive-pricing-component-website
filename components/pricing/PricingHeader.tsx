@@ -44,10 +44,10 @@ const PricingHeader: React.FC<PricingHeaderProps> = ({
 
   return (
     <header className="grid gap-4 p-8 pb-0 sm:flex sm:items-center sm:px-12 sm:py-16 sm:pb-0 sm:flex-wrap">
-      <h4 className="uppercase tracking-widest text-app-neutral-blue-grayish font-bold text-center sm:flex-1 sm:text-left">
+      <h2 className="uppercase tracking-widest text-app-neutral-blue-grayish font-bold text-center sm:flex-1 sm:text-left">
         {computedPageViews}
         {inputValue > 990000 ? 'mio+' : 'k'} Pageviews
-      </h4>
+      </h2>
 
       <div className="relative w-full text-center sm:order-3">
         <div
@@ -70,7 +70,7 @@ const PricingHeader: React.FC<PricingHeaderProps> = ({
 
       <div className="flex items-center justify-center gap-1 sm:justify-start sm:order-2">
         <h2 className="text-5xl font-bold">${price.toFixed(2)}</h2>
-        <h4 className="text-app-neutral-blue-grayish">/ month</h4>
+        <h3 className="text-app-neutral-blue-grayish">/ month</h3>
       </div>
     </header>
   );

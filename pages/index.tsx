@@ -1,9 +1,21 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import LoadingSpinner from '../components/LoadingSpinner';
 import Pricing from '../components/pricing/Pricing';
+import PricingHeadline from '../components/pricing/PricingHeadline';
 import PatternCircles from '../components/svg/PatternCircles';
 
 const Home: NextPage = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Prototype loading state
+    setTimeout(() => {
+      setLoading(false);
+    }, 1600);
+  });
+
   return (
     <div>
       <Head>
@@ -15,20 +27,15 @@ const Home: NextPage = () => {
       <main className="min-h-screen">
         <div className="absolute top-0 w-full h-[50vh] bg-bg-pattern bg-no-repeat bg-cover bg-left"></div>
 
-        <header className="relative grid gap-2 text-center my-12 px-4 sm:my-24">
-          <h1 className="text-3xl font-bold text-app-neutral-blue-desaturated-dark z-10">
-            Simple, traffic based pricing
-          </h1>
-          <p className="text-app-neutral-blue-grayish z-10">
-            Sign up for our 30 day trial. No credit card required.
-          </p>
-
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-auto z-0">
-            <PatternCircles />
+        {loading && (
+          <div className="fixed inset-0 flex items-center justify-center">
+            <LoadingSpinner />
           </div>
-        </header>
+        )}
 
-        <Pricing />
+        {!loading && <PricingHeadline />}
+
+        {!loading && <Pricing />}
       </main>
     </div>
   );
