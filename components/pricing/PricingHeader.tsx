@@ -31,19 +31,13 @@ const PricingHeader: React.FC = () => {
   }, [inputValue]);
 
   return (
-    <header className="grid gap-4 p-4 sm:px-12 sm:py-16 sm:pb-0">
-      <div className="sm:flex sm:items-center sm:justify-between sm:gap-2 sm:flex-wrap">
-        <h4 className="uppercase tracking-widest text-app-neutral-blue-grayish font-bold">
-          ${computedPageViews}
-          {inputValue > 990000 ? 'mio+' : 'k'} Pageviews
-        </h4>
-        <div className="flex items-center gap-1">
-          <h2 className="text-5xl font-bold">${price.toFixed(2)}</h2>
-          <h4 className="text-app-neutral-blue-grayish">/ month</h4>
-        </div>
-      </div>
+    <header className="grid gap-4 p-8 pb-0 sm:flex sm:items-center sm:px-12 sm:py-16 sm:pb-0 sm:flex-wrap">
+      <h4 className="uppercase tracking-widest text-app-neutral-blue-grayish font-bold text-center sm:flex-1 sm:text-left">
+        ${computedPageViews}
+        {inputValue > 990000 ? 'mio+' : 'k'} Pageviews
+      </h4>
 
-      <div className="relative w-full">
+      <div className="relative w-full text-center sm:order-3">
         <div
           className="h-2 absolute top-1/2 left-0 -translate-y-1/2 bg-app-primary-cyan-strong rounded-full block"
           style={{ width: `${progress}%` }}
@@ -59,6 +53,11 @@ const PricingHeader: React.FC = () => {
           value={inputValue}
           onChange={onChangeHandler}
         />
+      </div>
+
+      <div className="flex items-center justify-center gap-1 sm:justify-start sm:order-2">
+        <h2 className="text-5xl font-bold">${price.toFixed(2)}</h2>
+        <h4 className="text-app-neutral-blue-grayish">/ month</h4>
       </div>
     </header>
   );
